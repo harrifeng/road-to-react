@@ -27,7 +27,15 @@ class App extends Component {
     this.state = {
       list: list
     };
+
+    this.onDismiss = this.onDismiss.bind(this);
   }
+
+  // shorthand method names
+  onDismiss(id) {
+    console.log("removing", id)
+  }
+
   render() {
     return (
       <div className="App">
@@ -41,6 +49,14 @@ class App extends Component {
                 <span>{item.author}</span>
                 <span>{item.num_comments}</span>
                 <span>{item.points}</span>
+                <span>
+                  <button
+                    onClick={() => this.onDismiss(item.objectID)}
+                    type="button"
+                    >
+                    Dismiss
+                  </button>
+                </span>
               </div>
             )
           }
