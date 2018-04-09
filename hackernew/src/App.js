@@ -34,6 +34,9 @@ class App extends Component {
   // shorthand method names
   onDismiss(id) {
     console.log("removing", id)
+    const isNotId = item => item.objectID !== id;
+    const updatedList = this.state.list.filter(isNotId);
+    this.setState({list: updatedList})
   }
 
   render() {
