@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const list = [
@@ -22,11 +21,17 @@ const list = [
 ];
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      list: list
+    };
+  }
   render() {
-    const hello = 'Welcome to the Road to learn React, Again'
     return (
       <div className="App">
-        {list.map(function(item) {
+        {this.state.list.map((item) => {
           return (
             <div key={item.objectID}>
               <span>
